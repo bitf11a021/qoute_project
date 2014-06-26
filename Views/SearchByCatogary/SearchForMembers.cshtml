@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "SearchForMembers";
+}
+
+<html>
+<head>
+    <title>Profile</title>
+    <link href="~/content/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="page">
+            <div class="header">
+                <div class="header-img">
+                    <h1>Best Quotes</h1>
+                    <p>online repository of user contributed quotes</p>
+                </div>
+                <div class="menu">
+
+                    <ul>
+                        <li><a href="/Home/Home">Home</a></li>
+
+                        <li><a href="/SearchByCatogary/Search1">Search</a></li>
+                        <li><a href="/Contact_us/Contact_usForMembers">Contact Us</a></li>
+                        <li><a href="/Post/Post">Post</a></li>
+                        <li><a href="/Home/Logout">Logout</a></li>
+                        <li style="color:white; margin-left:45%">Hi, @Request.Cookies["Username"].Value</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <link href="~/Content/themes/jquery.fancybox.css" rel="stylesheet" />
+            <h2>Search1</h2>
+            <h3>Simple image gallery</h3>
+            <p>
+                <a class="fancybox" href="~/Images/1_b.jpg" data-fancybox-group="gallery" title="1"><img height="20%" width="20%" src="~/Images/1_b.jpg" alt="" /></a>
+                <a class="fancybox" href="~/Images/2_b.jpg" data-fancybox-group="gallery" title="2"><img height="20%" width="20%" src="~/Images/2_b.jpg" alt="" /></a>
+                <a class="fancybox" href="~/Images/5_b.jpg" data-fancybox-group="gallery" title="Cras neque mi, semper leon"><img height="20%" width="20%" src="~/Images/5_b.jpg" alt="" /></a>
+                <a class="fancybox" href="~/Images/4_b.jpg" data-fancybox-group="gallery" title="Sed vel sapien vel sem uno"><img height="20%" width="20%" src="~/Images/4_b.jpg" alt="" /></a>
+                <a class="fancybox" href="~/Images/4_b.jpg" data-fancybox-group="gallery" title="Sed vel sapien vel sem uno"><img height="20%" width="20%" src="~/Images/4_b.jpg" alt="" /></a>
+            </p>
+
+
+            <script src="~/Scripts/jquery-1.7.1.js"></script>
+            <script src="~/Scripts/jquery.fancybox.js"></script>
+            <script src="~/Scripts/jquery.fancybox.pack.js"></script>
+
+            <script type="text/javascript">
+
+
+                $('.fancybox').fancybox();
+
+            </script>
+
+
+            <div class="footer">
+                <!--DO NOT Remove The Footer Links-->
+                <!--Designed by--><a href="http://www.htmltemplates.net">
+                    <img src="~/images/footnote.gif" class="copyright" alt="html templates">
+                </a>
+                <p>
+                    &copy; Copyright 2010. Designed by <a target="_blank"
+                                                          href="http://www.htmltemplates.net">
+                        htmltemplates.n
+
+                        et
+                    </a>
+                    <!--In partnership with--><a href="http://websitetemplates.net">
+                        <img src="~/images/footnote.gif" class="copyright"
+                             alt="website templates">
+                    </a>
+                    <!--DO NOT Remove The Footer Links-->
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

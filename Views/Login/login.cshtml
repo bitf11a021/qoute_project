@@ -1,0 +1,61 @@
+@model QuotesProj.Models.Users
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+<div class="left-panel">
+<div class="left-panel-in">
+
+
+
+
+    
+@*<form action="/Login/Varify" method="post" >
+  @*username: <input type="text" id="name" name="username"><br>
+    <label for="FirstName">First Name:</label>
+    Html.TextBox("username")
+  password: <input type="password" id="password" name="password"><br>
+  <input type="submit" value="Login">
+</form>*@
+
+@using (Html.BeginForm("Varify","Login",FormMethod.Post))
+{
+    <div>
+    @Html.LabelFor(m => m.username)
+    @Html.TextBoxFor(m => m.username)
+    @Html.LabelFor(m => m.password)
+    @Html.TextBoxFor(m => m.password, new { type = "password" })
+   
+        </div>
+    <input type="submit" value="Login" />
+    <div style="color:red">@ViewBag.Message</div>
+
+}
+
+
+</div>
+</div>
+<div class="right-panel">
+<div class="right-panel-in">
+
+
+<h3>Categories</h3>
+<ul>
+  <li><a href="/Category/Category?type=best">Best<br></a></li>
+  <li><a href="/Category/Category?type=sad">Sad<br></a></li>
+  <li><a href="/Category/Category?type=education">Education<br></a></li>
+  <li><a href="/Category/Category?type=love">Love<br></a></li>
+  <li><a href="/Category/Category?type=frindship">Friendship<br></a></li>
+  <li><a href="/SearchByCatogary/SearchByCatogary">Search<br></a></li>
+</ul>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>

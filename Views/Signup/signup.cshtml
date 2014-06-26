@@ -1,0 +1,205 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model QuotesProj.Models.Users
+<div class="content">
+<div class="left-panel">
+<div class="left-panel-in">
+    
+    <h2>Check Avalability</h2>
+  @*  @using (Html.BeginForm("Save", "Signup",FormMethod.Post))
+{
+    <div>
+        
+        <div id="checking">Checking...</div>
+<div>
+      @Html.LabelFor(m => m.username)
+      @Html.TextBoxFor(m => m.username)
+   @* UserName: <input type="text" name="UserName" id="UserName" /> @//////////////////////////
+    <input type="button" id="b1" value="Check" />
+    <div id="result"></div>
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+        
+        $(document).ready(function () {
+
+            $('#checking').hide();
+
+            $('#b1').click(function () {
+
+                var username = $('#username').val();
+
+                //alert('User Name ='+ userName);
+                $('#checking').show();
+                $.getJSON("/Signup/CheckUserName?username=" + username, function (data) {
+                    $('#checking').hide();
+                    if (data) {
+                        $('#result').text("User already exists in database");
+
+                    }
+                    else {
+                        $('#result').text("User Name is available");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+</div>
+
+    <br/>
+         @Html.LabelFor(m => m.name)
+         @Html.TextBoxFor(m => m.name)
+ @* Name: <input type="text" id="name" name="name"><br>*@
+ @* username: <input type="text" id="username" name="username"><br>@
+
+         @Html.LabelFor(m => m.password)
+         @Html.TextBoxFor(m => m.password)
+  @*password: <input type="password" id="password" name="password">@<br>//////////////////
+        
+  
+   
+   
+        </div>
+    <input type="submit" value="SignUp" />
+
+}*@
+
+    <style type="text/css">
+
+        #signupForm label.error {
+            color:red;
+        }
+
+    </style>
+
+
+    <form id="signupForm" action="/Signup/Save" method="post" enctype="multipart/form-data">
+        <div id="checking">Checking...</div>
+        <div>
+
+            UserName: <input type="text" name="UserName" id="UserName" />
+            <input type="button" id="b1" value="Check" />
+            <div id="result"></div>
+            @Scripts.Render("~/bundles/jquery")
+            <script src="~/Scripts/jquery.validate.js"></script>
+            <script>
+                //Validation
+
+                $("#signupForm").validate({
+                    rules: {
+                        UserName: "required",
+                        name: "required",
+                        file:
+                            {
+                                required: true,
+                                accept: "jpg|jpeg|png|gif"
+                            },
+                        password: {
+                            required: true,
+                            minlength: 5
+                        },
+                        confirm_password: {
+                            required: true,
+                            minlength: 5,
+                            equalTo: "#password"
+                        }
+                    },
+                    messages: {
+                        UserName: "Please enter your Username",
+                        name: "Please enter your Name",
+                        file:
+                            {
+                                required: "Please upload your picture",
+                                accept: "Only jpg|jpeg|png|gif are allowed"
+                            },
+                        password: {
+                            required: "Please provide a password",
+                            minlength: "Your password must be at least 5 characters long"
+                        },
+                        confirm_password: {
+                            required: "Please provide a password",
+                            minlength: "Your password must be at least 5 characters long",
+                            equalTo: "Please enter the same password as above"
+                        }
+                    }
+                });
+
+                /////////////////////////////////////////////////////
+
+                $(document).ready(function () {
+
+                    $('#checking').hide();
+
+                    $('#b1').click(function () {
+
+                        var userName = $('#UserName').val();
+
+                        //alert('User Name ='+ userName);
+                        $('#checking').show();
+                        $.getJSON("/Signup/CheckUserName?UserName=" + userName, function (data) {
+                            $('#checking').hide();
+                            if (data) {
+                                $('#result').text("User already exists in database");
+
+                            }
+                            else {
+                                $('#result').text("User Name is available");
+                            }
+                        });
+
+                    });
+
+                });
+            </script>
+        </div>
+
+        <br />
+        Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="name" name="name"><br>
+        @* username: <input type="text" id="username" name="username">*@<br>
+
+        Password: &nbsp;<input type="password" id="password" name="password"><br>
+        Confirm Password: &nbsp;<input type="password" id="confirm_password" name="confirm_password"><br>
+        <input type="file" name="file" id="file" />
+        <br /><br />
+        <input type="submit" value="SignUp" style="width:50%; height:30%">
+    </form>
+
+
+
+
+</div>
+</div>
+<div class="right-panel">
+<div class="right-panel-in">
+
+<h3>Categories</h3>
+<ul>
+  <li><a href="/Category/Category?
+type=best">Best<br>
+    </a></li>
+  <li><a href="/Category/Category?type=sad">Sad<br>
+    </a></li>
+  <li><a href="/Category/Category?
+type=education">Education<br>
+    </a></li>
+  <li><a href="/Category/Category?
+type=love">Love<br>
+    </a></li>
+  <li><a href="/Category/Category?
+type=frindship">Friendship<br>
+    </a></li>
+    <li><a href="/SearchByCatogary/SearchByCatogary">Search<br></a></li>
+</ul>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
