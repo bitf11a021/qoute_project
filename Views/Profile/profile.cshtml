@@ -1,0 +1,162 @@
+@model List<QuotesProj.Models.Quotes>
+
+<html>
+<head>
+    <title>Profile</title>
+    <link href="~/content/style.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="page">
+            <div class="header">
+                <div class="header-img">
+                    <h1>Best Quotes</h1>
+                    <p>online repository of user contributed quotes</p>
+                </div>
+                <div class="menu">
+
+                    <ul>
+                        <li><a href="/Home/Home">Home</a></li>
+
+                        <li><a href="/SearchByCatogary/Search1">Search</a></li>
+                        <li><a href="/Contact_us/Contact_usForMembers">Contact Us</a></li>
+                        <li><a href="/Post/Post">Post</a></li>
+                        <li><a href="/Home/Logout">Logout</a></li>
+                        <li style="color:white; margin-left:45%">Hi, @Request.Cookies["Username"].Value</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="content">
+                <div class="left-panel">
+                    <div class="left-panel-in">
+                        @*<img src="C:\Users\MAHA TANVEER\Desktop\bubble11.jpg">*@
+
+                        <h2>Profile</h2><br />
+                        <img id="img" height="30%" width="50%" src="/@Request.Cookies["Pic"].Value" /><br/>
+                         <h2>Details</h2><br />
+                        <table id="info" border="1">
+                          @*  <tr>
+                                <td>Profile Picture </td>
+                                <td><img id="img" height="30%" width="50%" src="/@Request.Cookies["Pic"].Value" /></td>
+                            </tr>*@
+                            <tr>
+                                <td>Username</td>
+                                <td>@Request.Cookies["Username"].Value</td>
+                            </tr>
+                            <tr>
+                                <td>User Id</td>
+                                <td>@Request.Cookies["UserId"].Value</td>
+                            </tr>
+                            <tr>
+                                <td>Name</td>
+                                <td>@Request.Cookies["Name"].Value</td>
+                            </tr>
+                            <tr>
+                                <td>Role</td>
+                                <td>@Request.Cookies["Role"].Value</td>
+                            </tr>
+                            
+
+                        </table>
+                        <br>
+                        <a onclick="Check()">CHECK STATUS OF POSTED QUOTES<br>   </a>
+                        
+                        <div id="quots">
+                            <table border="1">
+
+
+                                <tr>
+                                    <td><b>#</b></td>
+                                    <td><b>Quotation</b></td>
+                                    <td><b>Status</b></td>
+                                </tr>
+
+                                @foreach (var x in Model)
+                                {
+                                    <tr>
+                                        <td>@x.Id</td>
+                                        <td><b>@x.quote_text</b></td>
+                                        <td>@x.status</td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div class="right-panel">
+                    <div class="right-panel-in">
+
+                        <h3>Categories</h3>
+                        <ul>
+                            <li><a href="/Category/CategoryForMembers?type=best">Best<br></a></li>
+                            <li><a href="/Category/CategoryForMembers?type=sad">Sad<br></a></li>
+                            <li><a href="/Category/CategoryForMembers?type=education">Education<br></a></li>
+                            <li><a href="/Category/CategoryForMembers?type=love">Love<br></a></li>
+                            <li><a href="/Category/CategoryForMembers?type=friendship">Friendship<br></a></li>
+                            <li><a href="/SearchByCatogary/SearchByCatogaryForMembers">Search<br></a></li>
+                        </ul>
+
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <!--DO NOT Remove The Footer Links-->
+                <!--Designed by--><a href="http://www.htmltemplates.net">
+                    <img src="~/images/footnote.gif" class="copyright" alt="html templates">
+                </a>
+                <p>
+                    &copy; Copyright 2010. Designed by <a target="_blank"
+                                                          href="http://www.htmltemplates.net">
+                        htmltemplates.n
+
+                        et
+                    </a>
+                    <!--In partnership with--><a href="http://websitetemplates.net">
+                        <img src="~/images/footnote.gif" class="copyright"
+                             alt="website templates">
+                    </a>
+                    <!--DO NOT Remove The Footer Links-->
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.7.1.js"></script>
+    <script src="~/Scripts/jquery-1.7.1.intellisense.js"></script>
+    <script>
+
+        var x = 0;
+        $("#quots").hide();
+        function Check() {
+            if (x == 0) {
+                $("#quots").show("slow");
+                x = x + 1;
+            }
+            else {
+                $("#quots").hide("slow");
+                x = x - 1;
+            }
+        }
+    </script>
+
+    </body>
+</html>
